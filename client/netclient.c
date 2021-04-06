@@ -86,7 +86,6 @@ int main(int argc, char ** argv){
         printf("Host not found\n");
         return -1;
     }
-    memset((char *) &serv_addr, 0, sizeof(serv_addr));
     serv_addr.sin_family = AF_INET;
     memcpy(&serv_addr.sin_addr.s_addr, server->h_addr, server->h_length);
     serv_addr.sin_port = htons(port);
@@ -112,7 +111,7 @@ int main(int argc, char ** argv){
     memset(buf, 0, BUF_SIZE);
 
     // Server response
-    recv(sock, buf, BUF_SIZE-1, 0);
+    recv(sock, buf, BUF_SIZE, 0);
     printf("%s\n",buf);
 
     close(sock);
