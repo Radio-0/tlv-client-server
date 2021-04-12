@@ -82,7 +82,8 @@ int main(int argc, char ** argv)
             return -1;
         }
 
-        strcpy(file_path, "/home/semin/sc/client-server/server/tlv.bin");
+        printf("Specify the path to save the file: \nExample: /home/Documents/tlv.bin\n");
+        scanf("%s", file_path);
         FILE *fd = fopen(file_path, "wb+");
         if(!fd){
             printf("Error file\n");
